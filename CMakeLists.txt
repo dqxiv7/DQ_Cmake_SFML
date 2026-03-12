@@ -12,8 +12,11 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(main src/main.cpp)
-target_compile_features(main PRIVATE cxx_std_17)
-target_link_libraries(main PRIVATE SFML::Graphics)
+add_executable(main_text_editor src/main_text_editor.cpp)
+add_executable(main_text_echo src/main_text_echo.cpp)
+target_compile_features(main_text_editor PRIVATE cxx_std_17)
+target_compile_features(main_text_echo PRIVATE cxx_std_17)
+target_link_libraries(main_text_editor PRIVATE SFML::Graphics SFML::Window SFML::System)
+target_link_libraries(main_text_echo PRIVATE SFML::Graphics SFML::Window SFML::System)
 
 set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT main)
